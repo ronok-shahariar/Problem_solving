@@ -3,28 +3,43 @@ using namespace std;
 
 int main()
 {
-    int arr [6] = {3,2,10,11,7,15}, x,y, target=9,sum=0,count=0;
-    int arr_1[7];
+    int arr [9] = {3,2,10,11,7,15,8,4,1}, arr_1[7];
+    int x,y,i,j,k, flag=0, target=9,sum=0,count=0;
+    
 
     x = arr[0];
 
-    for(int i=0; i<6; i++)
+    for(i=0; i<9; i++)
     {
         if(arr[i]<target)
         {
             arr_1[count] = arr[i];
-            //cout<<arr_1[count]<<endl;
+            cout<<arr_1[count]<<endl;
             count++;
         }
     }
+    cout<<endl;
 
-    for (int j = 0; j<3; j++)
+    for (j = 0; j<count; j++)
     {
-        sum=arr_1[j]+arr_1[j+1];
-        if(sum == target)
+       
+
+        for (k=0; k<count; k++)
         {
-            cout<<arr_1[j]<<","<<arr_1[j+1]<<endl;
+            // if(k!=j && sum<target)
+            // sum=sum+arr_1[k];
+
+                sum=arr_1[j]+arr_1[k];
+
+            if(sum == target && k!=flag)
+            {
+                //cout<<"["<<j<<"]"<<arr_1[j]<<","<<"["<<k<<"]"<<arr_1[k]<<endl;
+                cout<<arr_1[j]<<" "<<arr_1[k]<<endl;
+                flag = j;
+            }
         }
+        
+        
     }
 
 }
